@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.recipeapp.R
+import com.example.recipeapp.adapter.RecipeAdapter
 import com.example.recipeapp.databinding.FragmentHomeBinding
+import com.example.recipeapp.viewmodel.RecipeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,7 +37,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         recipeAdapter = RecipeAdapter()
 
-        binding.recyclerView.apply {
+        binding.rvRecipe.apply {
             layoutManager = GridLayoutManager(requireContext(),2)
             setHasFixedSize(true)
             adapter =recipeAdapter
