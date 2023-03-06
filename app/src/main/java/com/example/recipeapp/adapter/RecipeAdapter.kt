@@ -2,6 +2,8 @@ package com.example.recipeapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.example.recipeapp.databinding.RecipeRowBinding
 import com.example.recipeapp.model.Result
+import com.example.recipeapp.view.HomeFragmentDirections
 
 class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
@@ -48,6 +51,10 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
                 crossfade(true)
                 crossfade(1000)
             }
+        }
+        holder.itemView.setOnClickListener {
+            val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(currentRecipe)
+            it.findNavController().navigate(direction)
         }
     }
 }
